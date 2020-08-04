@@ -14,5 +14,6 @@ public interface CrudController {
 	@DeleteMapping("/{id}")
 	public Object deleteById(@PathVariable String id);
 
-
+	@GetMapping("/info")
+	public String info();
 }

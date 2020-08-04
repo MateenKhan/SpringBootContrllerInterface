@@ -2,6 +2,7 @@ package com.example.restservice.service;
 
 
 import com.example.restservice.CrudController;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,7 +10,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/employee")
 public class EmployeeService implements CrudController {
 
-    //    http://localhost:8080/user/s1
+
+    @Autowired
+    Infoservice infoservice;
+
+    //    http://localhost:8080/employee/s1
     @Override
     public Object getById(String id) {
         return "Get employee By id:"+id;
@@ -18,5 +23,10 @@ public class EmployeeService implements CrudController {
     @Override
     public Object deleteById(String id) {
         return "Delete employee By id:"+id;
+    }
+
+    @Override
+    public String info() {
+        return infoservice.info();
     }
 }
